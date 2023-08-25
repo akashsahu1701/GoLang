@@ -22,7 +22,7 @@ func (services *usersService) Create(user interfaces.User) (interfaces.User, err
 	// services.users = append(services.users, user)
 	_, exists := services.users[user.USERNAME]
 	if exists {
-		return interfaces.User{}, fmt.Errorf("%v", "User already exists")
+		return interfaces.User{}, fmt.Errorf("%v %v %v", "user with this username:", user.USERNAME, "already exists")
 	}
 	services.users[user.USERNAME] = user
 	return user, nil
